@@ -1,0 +1,27 @@
+﻿@model ProductManagerMVC.Models.Produto
+
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+}
+
+<h1>Detalhes do Produto</h1>
+
+<div class="form-group">
+    <label>Nome</label>
+    <p class="form-control-static">@Model.Nome</p>
+</div>
+<div class="form-group">
+    <label>Preço</label>
+    <p class="form-control-static">@Model.Preco</p>
+</div>
+<div class="form-group">
+    <label>Categoria</label>
+    <p class="form-control-static">@Model.Categoria</p>
+</div>
+<div class="form-group">
+    <label>Estoque</label>
+    <p class="form-control-static">@Model.Estoque</p>
+</div>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Voltar</a>
+<a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary">Editar</a>

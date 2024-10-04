@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProductManagerMVC.Models.Produto>
+
+@{
+    ViewData["Title"] = "Lista de Produtos";
+}
+
+<h1>Lista de Produtos</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Categoria</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>@produto.Id</td>
+                <td>@produto.Nome</td>
+                <td>@produto.Preco</td>
+                <td>@produto.Categoria</td>
+                <td>@produto.Estoque</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = produto.Id })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Details", new { id = produto.Id })" class="btn btn-info">Detalhes</a>
+                    <a href="@Url.Action("Delete", new { id = produto.Id })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Adicionar Novo Produto</a>
